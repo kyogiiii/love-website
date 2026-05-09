@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Favorite Person ❤️</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Poppins,sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#8b0000,#ff4d4d);
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* FLOATING HEARTS */
+
+    .floating-hearts span{
+      position:absolute;
+      bottom:-100px;
+      color:rgba(255,255,255,0.5);
+      animation:floatUp linear infinite;
+      z-index:1;
+    }
+
+    .floating-hearts span:nth-child(1){
+      left:5%;
+      font-size:20px;
+      animation-duration:8s;
+    }
+
+    .floating-hearts span:nth-child(2){
+      left:15%;
+      font-size:35px;
+      animation-duration:12s;
+    }
+
+    .floating-hearts span:nth-child(3){
+      left:28%;
+      font-size:25px;
+      animation-duration:10s;
+    }
+
+    .floating-hearts span:nth-child(4){
+      left:40%;
+      font-size:40px;
+      animation-duration:14s;
+    }
+
+    .floating-hearts span:nth-child(5){
+      left:55%;
+      font-size:22px;
+      animation-duration:9s;
+    }
+
+    .floating-hearts span:nth-child(6){
+      left:68%;
+      font-size:30px;
+      animation-duration:11s;
+    }
+
+    .floating-hearts span:nth-child(7){
+      left:80%;
+      font-size:18px;
+      animation-duration:13s;
+    }
+
+    .floating-hearts span:nth-child(8){
+      left:92%;
+      font-size:28px;
+      animation-duration:15s;
+    }
+
+    @keyframes floatUp{
+
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+
+      20%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+
+    }
+
+    /* MAIN CARD */
+
+    .card{
+      background:white;
+      width:90%;
+      max-width:500px;
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+      animation:cardFloat 3s ease-in-out infinite;
+      z-index:2;
+      position:relative;
+    }
+
+    /* MAIN HEART */
+
+    .heart{
+      font-size:4rem;
+      animation:heartbeat 1s infinite;
+    }
+
+    h1{
+      color:#d60000;
+      margin:15px 0;
+      font-size:2.5rem;
+    }
+
+    p{
+      color:#444;
+      line-height:1.8;
+      margin-bottom:25px;
+      font-size:1.1rem;
+    }
+
+    input{
+      width:100%;
+      padding:14px;
+      border:2px solid #d60000;
+      border-radius:15px;
+      margin-bottom:20px;
+      font-size:1rem;
+      outline:none;
+      text-align:center;
+    }
+
+    button{
+      background:#d60000;
+      color:white;
+      border:none;
+      padding:12px 24px;
+      border-radius:30px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    button:hover{
+      background:#a80000;
+      transform:scale(1.08);
+    }
+
+    #message{
+      margin-top:20px;
+      font-size:1.1rem;
+      color:#d60000;
+      font-weight:bold;
+    }
+
+    /* HEARTBEAT */
+
+    @keyframes heartbeat{
+
+      0%{
+        transform:scale(1);
+      }
+
+      25%{
+        transform:scale(1.2);
+      }
+
+      40%{
+        transform:scale(1);
+      }
+
+      60%{
+        transform:scale(1.15);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+
+    }
+
+    /* FLOATING CARD */
+
+    @keyframes cardFloat{
+
+      0%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-10px);
+      }
+
+      100%{
+        transform:translateY(0);
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- FLOATING HEARTS -->
+
+  <div class="floating-hearts">
+    <span>🖤</span>
+    <span>❤️‍🔥</span>
+    <span>💖</span>
+    <span>🔥</span>
+    <span>💜</span>
+    <span>🩷</span>
+    <span>🎀</span>
+    <span>🎊</span>
+  </div>
+
+  <!-- CARD -->
+
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Hey Love!</h1>
+
+    <p>
+      Enter your name to continue ❤️
+    </p>
+
+    <input
+      type="text"
+      id="nameInput"
+      placeholder="Enter your name"
+    >
+
+    <button onclick="checkName()">
+      Enter 💌
+    </button>
+
+    <div id="message"></div>
+
+  </div>
+
+  <script>
+
+  function checkName(){
+
+    const name = document
+      .getElementById("nameInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+    if(
+      name === "dwyane" ||
+      name === "carlo" ||
+      name === "dwyane carlo cabigas"
+    ){
+
+      window.location.href = "gallery.html";
+
+    }else{
+
+      document.getElementById("message").innerHTML =
+        "ew who are you 😭";
+
+    }
+
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Memories ❤️</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Poppins,sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#5c0000,#ff4d4d);
+      min-height:100vh;
+      padding:40px 20px;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    /* FLOATING HEARTS */
+
+    .floating-hearts span{
+      position:absolute;
+      bottom:-100px;
+      color:rgba(255,255,255,0.4);
+      animation:floatUp linear infinite;
+      z-index:1;
+    }
+
+    .floating-hearts span:nth-child(1){
+      left:5%;
+      font-size:20px;
+      animation-duration:8s;
+    }
+
+    .floating-hearts span:nth-child(2){
+      left:15%;
+      font-size:35px;
+      animation-duration:12s;
+    }
+
+    .floating-hearts span:nth-child(3){
+      left:28%;
+      font-size:25px;
+      animation-duration:10s;
+    }
+
+    .floating-hearts span:nth-child(4){
+      left:40%;
+      font-size:40px;
+      animation-duration:14s;
+    }
+
+    .floating-hearts span:nth-child(5){
+      left:55%;
+      font-size:22px;
+      animation-duration:9s;
+    }
+
+    .floating-hearts span:nth-child(6){
+      left:68%;
+      font-size:30px;
+      animation-duration:11s;
+    }
+
+    .floating-hearts span:nth-child(7){
+      left:80%;
+      font-size:18px;
+      animation-duration:13s;
+    }
+
+    .floating-hearts span:nth-child(8){
+      left:92%;
+      font-size:28px;
+      animation-duration:15s;
+    }
+
+    @keyframes floatUp{
+
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+
+      20%{
+        opacity:1;
+      }
+
+      100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+
+    }
+
+    h1{
+      text-align:center;
+      color:white;
+      margin-bottom:40px;
+      font-size:3rem;
+      position:relative;
+      z-index:2;
+    }
+
+    /* GALLERY */
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      max-width:1200px;
+      margin:auto;
+      position:relative;
+      z-index:2;
+    }
+
+    .photo-card{
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+      transition:.3s;
+      cursor:pointer;
+      animation:floatCard 3s ease-in-out infinite;
+    }
+
+    .photo-card:hover{
+      transform:scale(1.03);
+    }
+
+    .photo-card img{
+      width:100%;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .photo-info{
+      padding:20px;
+      text-align:center;
+    }
+
+    .photo-info h2{
+      color:#d60000;
+      margin-bottom:10px;
+    }
+
+    .photo-info p{
+      color:#555;
+    }
+
+    @keyframes floatCard{
+
+      0%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-10px);
+      }
+
+      100%{
+        transform:translateY(0);
+      }
+
+    }
+
+    /* BACK BUTTON */
+
+    .back-btn{
+      display:block;
+      width:fit-content;
+      margin:40px auto 0;
+      background:#d60000;
+      color:white;
+      padding:12px 24px;
+      border-radius:30px;
+      text-decoration:none;
+      transition:.3s;
+      position:relative;
+      z-index:2;
+    }
+
+    .back-btn:hover{
+      background:#a80000;
+      transform:scale(1.08);
+    }
+
+    /* IMAGE POPUP */
+
+    .popup{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.85);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+      animation:fadeIn .3s ease;
+    }
+
+    .popup img{
+      max-width:90%;
+      max-height:85%;
+      border-radius:20px;
+      animation:zoomIn .4s ease;
+    }
+
+    .close{
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:40px;
+      color:white;
+      cursor:pointer;
+    }
+
+    /* SECRET BUTTON */
+
+    .secret-trigger{
+      text-align:center;
+      margin-top:50px;
+      position:relative;
+      z-index:2;
+    }
+
+    .secret-trigger button{
+      background:white;
+      color:#d60000;
+      border:none;
+      padding:15px 30px;
+      border-radius:40px;
+      font-size:1rem;
+      cursor:pointer;
+      font-weight:bold;
+      transition:.3s;
+      box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .secret-trigger button:hover{
+      transform:scale(1.08);
+      background:#ffe5e5;
+    }
+
+    /* SECRET POPUP */
+
+    .secret-popup{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.75);
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:999;
+      animation:fadeIn .3s ease;
+    }
+
+    .secret-box{
+      background:white;
+      width:90%;
+      max-width:450px;
+      padding:35px;
+      border-radius:25px;
+      text-align:center;
+      position:relative;
+      animation:zoomIn .4s ease;
+    }
+
+    .secret-box h2{
+      color:#d60000;
+      margin-bottom:10px;
+    }
+
+    .secret-box p{
+      color:#555;
+      margin-bottom:20px;
+    }
+
+    .secret-box input{
+      width:100%;
+      padding:14px;
+      border:2px solid #d60000;
+      border-radius:15px;
+      margin-bottom:20px;
+      font-size:1rem;
+      text-align:center;
+      outline:none;
+    }
+
+    .secret-box button{
+      background:#d60000;
+      color:white;
+      border:none;
+      padding:12px 24px;
+      border-radius:30px;
+      font-size:1rem;
+      cursor:pointer;
+      transition:.3s;
+    }
+
+    .secret-box button:hover{
+      background:#a80000;
+      transform:scale(1.05);
+    }
+
+    .secret-close{
+      position:absolute;
+      top:15px;
+      right:20px;
+      font-size:30px;
+      color:#d60000;
+      cursor:pointer;
+    }
+
+    #passcodeMessage{
+      margin-top:15px;
+      color:#d60000;
+      font-weight:bold;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+      }
+
+      to{
+        opacity:1;
+      }
+    }
+
+    @keyframes zoomIn{
+      from{
+        transform:scale(.7);
+        opacity:0;
+      }
+
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- FLOATING HEARTS -->
+
+  <div class="floating-hearts">
+    <span>❤️</span>
+    <span>💕</span>
+    <span>💖</span>
+    <span>💘</span>
+    <span>💞</span>
+    <span>🩷</span>
+    <span>🎀</span>
+    <span>🌹</span>
+  </div>
+
+  <!-- TITLE -->
+
+  <h1>Our Memories ❤️</h1>
+
+  <!-- GALLERY -->
+
+  <div class="gallery">
+
+    <div class="photo-card" onclick="openPopup('images/photo1.jpg')">
+
+      <img src="images/photo1.jpg">
+
+      <div class="photo-info">
+        <h2>Our First Date ❤️</h2>
+        <p>Taken on February 14, 2025</p>
+      </div>
+
+    </div>
+
+    <div class="photo-card" onclick="openPopup('images/photo2.jpg')">
+
+      <img src="images/photo2.jpg">
+
+      <div class="photo-info">
+        <h2>Beach Day 🌹</h2>
+        <p>Taken on April 8, 2025</p>
+      </div>
+
+    </div>
+
+    <div class="photo-card" onclick="openPopup('images/photo3.jpg')">
+
+      <img src="images/photo3.jpg">
+
+      <div class="photo-info">
+        <h2>Late Night Drive 🌙</h2>
+        <p>Taken on June 20, 2025</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- SECRET BUTTON -->
+
+  <div class="secret-trigger">
+
+    <button onclick="openSecretBox()">
+      Do you wanna see a secret? 👀
+    </button>
+
+  </div>
+
+  <!-- BACK BUTTON -->
+
+  <a href="index.html" class="back-btn">
+    Back Home ❤️
+  </a>
+
+  <!-- IMAGE POPUP -->
+
+  <div class="popup" id="popup">
+
+    <span class="close" onclick="closePopup()">
+      &times;
+    </span>
+
+    <img id="popup-img">
+
+  </div>
+
+  <!-- SECRET POPUP -->
+
+  <div class="secret-popup" id="secretPopup">
+
+    <div class="secret-box">
+
+      <span class="secret-close" onclick="closeSecretBox()">
+        &times;
+      </span>
+
+      <h2>Secret Letter 🔒</h2>
+
+      <p>
+        Enter the special passcode ❤️
+      </p>
+
+      <input
+        type="password"
+        id="passcodeInput"
+        placeholder="Enter passcode"
+      >
+
+      <button onclick="checkPasscode()">
+        Unlock 💌
+      </button>
+
+      <div id="passcodeMessage"></div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    /* IMAGE POPUP */
+
+    function openPopup(imageSrc){
+
+      document.getElementById("popup").style.display = "flex";
+
+      document.getElementById("popup-img").src = imageSrc;
+
+    }
+
+    function closePopup(){
+
+      document.getElementById("popup").style.display = "none";
+
+    }
+
+    /* SECRET POPUP */
+
+    function openSecretBox(){
+
+      document.getElementById("secretPopup").style.display = "flex";
+
+    }
+
+    function closeSecretBox(){
+
+      document.getElementById("secretPopup").style.display = "none";
+
+    }
+
+    function checkPasscode(){
+
+      const passcode = document
+        .getElementById("passcodeInput")
+        .value
+        .trim();
+
+      if(passcode === "0520"){
+
+        window.location.href = "secret.html";
+
+      }else{
+
+        document.getElementById("passcodeMessage").innerHTML =
+          "Wrong passcode 😭";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
