@@ -15,19 +15,104 @@
     }
 
     body{
-      background:linear-gradient(135deg,#5c0000,#ff4d4d);
+
+      background-color:#fff6f4;
+
+      background-image:
+
+      radial-gradient(circle at 20px 20px,
+      rgba(120,0,0,0.9) 0 6px,
+      transparent 7px),
+
+      radial-gradient(circle at 100px 100px,
+      rgba(120,0,0,0.9) 0 6px,
+      transparent 7px),
+
+      repeating-linear-gradient(
+        45deg,
+        #7a0000 0px,
+        #7a0000 80px,
+        #b22222 80px,
+        #b22222 160px
+      ),
+
+      repeating-linear-gradient(
+        -45deg,
+        rgba(255,240,235,0.55) 0px,
+        rgba(255,240,235,0.55) 80px,
+        rgba(255,180,180,0.35) 80px,
+        rgba(255,180,180,0.35) 160px
+      ),
+
+      repeating-linear-gradient(
+        45deg,
+        transparent 0px,
+        transparent 74px,
+        rgba(255,255,255,0.6) 74px,
+        rgba(255,255,255,0.6) 78px,
+        transparent 78px,
+        transparent 82px
+      ),
+
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0px,
+        transparent 74px,
+        rgba(255,255,255,0.6) 74px,
+        rgba(255,255,255,0.6) 78px,
+        transparent 78px,
+        transparent 82px
+      );
+
+      background-size:
+        120px 120px,
+        120px 120px,
+        160px 160px,
+        160px 160px,
+        160px 160px,
+        160px 160px;
+
+      animation:bgMove 18s linear infinite;
+
       min-height:100vh;
       padding:40px 20px;
       overflow-x:hidden;
       position:relative;
+
     }
 
-    /* FLOATING HEARTS */
+    @keyframes bgMove{
+
+      0%{
+
+        background-position:
+          0 0,
+          60px 60px,
+          0 0,
+          0 0,
+          0 0,
+          0 0;
+
+      }
+
+      100%{
+
+        background-position:
+          120px 120px,
+          180px 180px,
+          160px 0,
+          -160px 0,
+          160px 160px,
+          -160px 160px;
+
+      }
+
+    }
 
     .floating-hearts span{
       position:absolute;
       bottom:-100px;
-      color:rgba(255,255,255,0.4);
+      color:rgba(255,255,255,0.5);
       animation:floatUp linear infinite;
       z-index:1;
     }
@@ -105,9 +190,8 @@
       font-size:3rem;
       position:relative;
       z-index:2;
+      text-shadow:0 5px 10px rgba(0,0,0,0.3);
     }
-
-    /* GALLERY */
 
     .gallery{
       display:grid;
@@ -120,7 +204,8 @@
     }
 
     .photo-card{
-      background:white;
+      background:rgba(255,255,255,0.93);
+      backdrop-filter:blur(8px);
       border-radius:20px;
       overflow:hidden;
       box-shadow:0 8px 20px rgba(0,0,0,0.2);
@@ -145,7 +230,7 @@
     }
 
     .photo-info h2{
-      color:#d60000;
+      color:#8b0000;
       margin-bottom:10px;
     }
 
@@ -169,13 +254,11 @@
 
     }
 
-    /* BACK BUTTON */
-
     .back-btn{
       display:block;
       width:fit-content;
       margin:40px auto 0;
-      background:#d60000;
+      background:#8b0000;
       color:white;
       padding:12px 24px;
       border-radius:30px;
@@ -186,11 +269,9 @@
     }
 
     .back-btn:hover{
-      background:#a80000;
+      background:#5c0000;
       transform:scale(1.08);
     }
-
-    /* IMAGE POPUP */
 
     .popup{
       position:fixed;
@@ -222,8 +303,6 @@
       cursor:pointer;
     }
 
-    /* SECRET BUTTON */
-
     .secret-trigger{
       text-align:center;
       margin-top:50px;
@@ -233,7 +312,7 @@
 
     .secret-trigger button{
       background:white;
-      color:#d60000;
+      color:#8b0000;
       border:none;
       padding:15px 30px;
       border-radius:40px;
@@ -246,10 +325,8 @@
 
     .secret-trigger button:hover{
       transform:scale(1.08);
-      background:#ffe5e5;
+      background:#fff0f0;
     }
-
-    /* SECRET POPUP */
 
     .secret-popup{
       position:fixed;
@@ -277,7 +354,7 @@
     }
 
     .secret-box h2{
-      color:#d60000;
+      color:#8b0000;
       margin-bottom:10px;
     }
 
@@ -289,7 +366,7 @@
     .secret-box input{
       width:100%;
       padding:14px;
-      border:2px solid #d60000;
+      border:2px solid #8b0000;
       border-radius:15px;
       margin-bottom:20px;
       font-size:1rem;
@@ -298,7 +375,7 @@
     }
 
     .secret-box button{
-      background:#d60000;
+      background:#8b0000;
       color:white;
       border:none;
       padding:12px 24px;
@@ -309,7 +386,7 @@
     }
 
     .secret-box button:hover{
-      background:#a80000;
+      background:#5c0000;
       transform:scale(1.05);
     }
 
@@ -318,17 +395,15 @@
       top:15px;
       right:20px;
       font-size:30px;
-      color:#d60000;
+      color:#8b0000;
       cursor:pointer;
     }
 
     #passcodeMessage{
       margin-top:15px;
-      color:#d60000;
+      color:#8b0000;
       font-weight:bold;
     }
-
-    /* ANIMATIONS */
 
     @keyframes fadeIn{
       from{
@@ -357,8 +432,6 @@
 
 <body>
 
-  <!-- FLOATING HEARTS -->
-
   <div class="floating-hearts">
     <span>❤️</span>
     <span>💕</span>
@@ -370,50 +443,58 @@
     <span>🌹</span>
   </div>
 
-  <!-- TITLE -->
-
   <h1>Our Memories ❤️</h1>
-
-  <!-- GALLERY -->
 
   <div class="gallery">
 
-    <div class="photo-card" onclick="openPopup('images/photo1.jpg')">
+    <div class="photo-card" onclick="openPopup('images/photo1.png')">
 
-      <img src="images/photo1.jpg">
+      <img src="images/photo1.png">
 
       <div class="photo-info">
-        <h2>Our First Date ❤️</h2>
-        <p>Taken on February 14, 2025</p>
+        <h2>Anime Night ❤️</h2>
+        <p>Taken on December 19, 2025</p>
+        <p>cried so much</p>
       </div>
 
     </div>
 
-    <div class="photo-card" onclick="openPopup('images/photo2.jpg')">
+    <div class="photo-card" onclick="openPopup('images/photo2.png')">
 
-      <img src="images/photo2.jpg">
+      <img src="images/photo2.png">
 
       <div class="photo-info">
-        <h2>Beach Day 🌹</h2>
-        <p>Taken on April 8, 2025</p>
+        <h2>Gaming Night 🌹</h2>
+        <p>Taken on May 30, 2025</p>
+        <p>like bat naman kita iiwan?</p>
       </div>
 
     </div>
 
-    <div class="photo-card" onclick="openPopup('images/photo3.jpg')">
+    <div class="photo-card" onclick="openPopup('images/photo3.png')">
 
-      <img src="images/photo3.jpg">
+      <img src="images/photo3.png">
 
       <div class="photo-info">
-        <h2>Late Night Drive 🌙</h2>
-        <p>Taken on June 20, 2025</p>
+        <h2>Late night talks 🌙</h2>
+        <p>Taken on June 6, 2025</p>
+        <p>he said "i will take out my inner alpha"</p>
+      </div>
+
+    </div>
+
+    <div class="photo-card" onclick="openPopup('images/photo4.png')">
+
+      <img src="images/photo4.png">
+
+      <div class="photo-info">
+        <h2>In Game Date 🍿</h2>
+        <p>Taken on May 30, 2025</p>
       </div>
 
     </div>
 
   </div>
-
-  <!-- SECRET BUTTON -->
 
   <div class="secret-trigger">
 
@@ -423,13 +504,9 @@
 
   </div>
 
-  <!-- BACK BUTTON -->
-
   <a href="index.html" class="back-btn">
     Back Home ❤️
   </a>
-
-  <!-- IMAGE POPUP -->
 
   <div class="popup" id="popup">
 
@@ -440,8 +517,6 @@
     <img id="popup-img">
 
   </div>
-
-  <!-- SECRET POPUP -->
 
   <div class="secret-popup" id="secretPopup">
 
@@ -475,8 +550,6 @@
 
   <script>
 
-    /* IMAGE POPUP */
-
     function openPopup(imageSrc){
 
       document.getElementById("popup").style.display = "flex";
@@ -490,8 +563,6 @@
       document.getElementById("popup").style.display = "none";
 
     }
-
-    /* SECRET POPUP */
 
     function openSecretBox(){
 
@@ -519,7 +590,7 @@
       }else{
 
         document.getElementById("passcodeMessage").innerHTML =
-          "Wrong passcode 😭";
+          "Wrong passcode😭 HINT our monthsarry!";
 
       }
 
